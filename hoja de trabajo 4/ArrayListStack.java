@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+class ArrayListStack<T> implements Stack<T> {
+    private ArrayList<T> list;
+
+    public ArrayListStack() {
+        list = new ArrayList<>();
+    }
+
+    public void push(T element) {
+        list.add(element);
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return list.remove(list.size() - 1);
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return list.get(list.size() - 1);
+    }
+
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+
+    public int size() {
+        return list.size();
+    }
+}
